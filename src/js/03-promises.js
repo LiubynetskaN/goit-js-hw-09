@@ -11,12 +11,10 @@ function dataHandler(event) {
   const step = Number(event.target.step.value);
   const amount = Number(event.target.amount.value);
 
-  if (delay < 0) {
+  if (delay < 0 || step < 0 || amount <= 0 ) {
     return Notiflix.Notify.failure(
-      'Value for first step could not be negative'
+      'Value could not be negative'
     );
-  } else if (amount < 0) { 
-    return Notiflix.Notify.failure('Amount of promises could not be negative');
   }
 
   for (let i = 0; i < amount; i += 1) { 

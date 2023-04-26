@@ -21,15 +21,8 @@ function startChangeHandler() {
   }
 }
 
-function startChangeHandler() {
-    bodyEl.style.backgroundColor = `${getRandomHexColor()}`;
-    if (timerId === null) {
-      timerId = setInterval(() => {
-        bodyEl.style.backgroundColor = `${getRandomHexColor()}`;
-      }, 1000);
-      startEl.disabled = true;
-      if (stopEl.hasAttribute('disabled')) {
-        stopEl.disabled = false;
-      }
-    }
-  }
+function stopChangeHandler() {
+  clearInterval(timerId);
+  stopEl.disabled = true;
+  startEl.disabled = false;
+}
